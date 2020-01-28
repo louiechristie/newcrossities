@@ -1,5 +1,7 @@
 import React from "react"
 import { graphql } from "gatsby"
+import Layout from "../components/layout"
+import SEO from "../components/seo"
 
 const Page = props => {
   console.log("props: ", props)
@@ -9,13 +11,17 @@ const Page = props => {
     },
   } = props
 
-  const { title, content } = page
+  const { title, content, featuredImage } = page
 
   return (
-    <div>
+    <Layout>
+      <SEO title={title} />
       <h1>{title}</h1>
+
+      <img src={featuredImage.sourceUrl} alt={featuredImage.altText} />
+
       <div dangerouslySetInnerHTML={{ __html: content }} />
-    </div>
+    </Layout>
   )
 }
 
@@ -28,6 +34,10 @@ export const pageQuery = graphql`
         title
         content
         uri
+        featuredImage {
+          altText
+          sourceUrl(size: LARGE)
+        }
       }
     }
   }
