@@ -4,9 +4,10 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Newcrossities`,
+    description:
+      "Newcrossities: a weary travellers’ guide to the new curiosities of South London, New Cross, Deptford, and beyond. Curated and opinionated Underground, weird and funny Completely incomplete",
+    author: `Louie Christie`,
   },
   plugins: [
     `gatsby-plugin-react-helmet`,

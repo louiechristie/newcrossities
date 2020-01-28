@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "newcrossities",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
-  "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "description": "Newcrossities: a weary travellers’ guide to the new curiosities of South London, New Cross, Deptford, and beyond. Curated and opinionated Underground, weird and funny Completely incomplete",
+  "version": "0.0.1",
+  "author": "Louie Christie",
   "dependencies": {
     "gatsby": "^2.18.12",
     "gatsby-image": "^2.2.34",
@@ -25,7 +25,7 @@
   "keywords": [
     "gatsby"
   ],
-  "license": "MIT",
+  "license": "Copyright Louie Christie 2020",
   "scripts": {
     "build": "gatsby build",
     "develop": "gatsby develop",
