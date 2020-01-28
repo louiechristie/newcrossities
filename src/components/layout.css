@@ -2,11 +2,22 @@ html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 body {
-  margin: 0;
+  margin: 10 0;
+  padding: 20px;
+  max-width: 960px;
+  border: 1px solid grey;
+  border-radius: 5px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+img,
+video {
+  max-width: 100%;
 }
 article,
 aside,
