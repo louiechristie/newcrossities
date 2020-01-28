@@ -4,7 +4,9 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 
 const Page = props => {
+  let sourceUrl, altText
   console.log("props: ", props)
+
   const {
     data: {
       wpgraphql: { page },
@@ -13,12 +15,17 @@ const Page = props => {
 
   const { title, content, featuredImage } = page
 
+  if (featuredImage) {
+    sourceUrl = featuredImage.sourceUrl
+    altText = featuredImage.altText
+  }
+
   return (
     <Layout>
       <SEO title={title} />
       <h1>{title}</h1>
 
-      <img src={featuredImage.sourceUrl} alt={featuredImage.altText} />
+      <img src={sourceUrl || ""} alt={altText || ""} />
 
       <div dangerouslySetInnerHTML={{ __html: content }} />
     </Layout>
