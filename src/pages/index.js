@@ -7,11 +7,19 @@ import SEO from "../components/seo"
 const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
+
+    <h2>A funny guide to South London</h2>
+
     <p>
-      Newcrossities: a weary travellers’ guide to the new curiosities of South
-      London, New Cross, Deptford, and beyond. Curated and opinionated
-      Underground, weird and funny Completely incomplete.
+      Newcrossities is a weary travellers’ guide to the new curiosities of South
+      London, New Cross, Deptford, and beyond:
     </p>
+
+    <ul>
+      <li>Curated and opinionated.</li>
+      <li>Underground, weird and funny.</li>
+      <li>Completely incomplete</li>
+    </ul>
 
     <h2>Pages</h2>
 

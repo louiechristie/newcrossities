@@ -1,7 +1,7 @@
 {
   "name": "newcrossities",
   "private": true,
-  "description": "Newcrossities: a weary travellers’ guide to the new curiosities of South London, New Cross, Deptford, and beyond. Curated and opinionated Underground, weird and funny Completely incomplete",
+  "description": "A funny guide to South London",
   "version": "0.0.1",
   "author": "Louie Christie",
   "dependencies": {
