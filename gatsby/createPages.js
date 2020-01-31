@@ -63,7 +63,7 @@ module.exports = async ({ actions, graphql }) => {
       console.log(`create page uri: ${page.uri}`)
 
       createPage({
-        path: `/${page.uri}`,
+        path: page.uri === `/` ? `/home` : `/${page.uri}`,
         component: pageTemplate,
         context: page,
       })
