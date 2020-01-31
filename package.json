@@ -2,7 +2,7 @@
   "name": "newcrossities",
   "private": true,
   "description": "A funny guide to South London",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Louie Christie",
   "dependencies": {
     "gatsby": "^2.18.12",

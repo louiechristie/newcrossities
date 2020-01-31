@@ -8,20 +8,7 @@ const IndexPage = () => (
   <Layout>
     <SEO title="Home" />
 
-    <h2>A funny guide to South London</h2>
-
-    <p>
-      Newcrossities is a weary travellers’ guide to the new curiosities of South
-      London, New Cross, Deptford, and beyond:
-    </p>
-
-    <ul>
-      <li>Curated and opinionated.</li>
-      <li>Underground, weird and funny.</li>
-      <li>Completely incomplete</li>
-    </ul>
-
-    <h2>Pages</h2>
+    <h2>Places:</h2>
 
     <ul>
       <li>
@@ -47,9 +34,6 @@ const IndexPage = () => (
       </li>
       <li>
         <Link to="/about/">About</Link>
-      </li>
-      <li>
-        <Link to="/contact/">Contact</Link>
       </li>
     </ul>
   </Layout>

@@ -7,7 +7,7 @@
 
 import React from "react"
 import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import { useStaticQuery, graphql, Link } from "gatsby"
 
 import Header from "./header"
 import "./layout.css"
@@ -31,13 +31,42 @@ const Layout = ({ children }) => {
           margin: `0 auto`,
           maxWidth: 960,
           padding: `0 1.0875rem 1.45rem`,
+          marginTop: `3rem`,
         }}
       >
         <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Made by
+        <footer
+          style={{
+            margin: `0 auto`,
+            maxWidth: 960,
+            padding: `1.0875rem`,
+            marginTop: `3rem`,
+            borderRadius: `5px`,
+            color: `white`,
+            backgroundColor: `rebeccapurple`,
+          }}
+        >
+          <p>
+            Newcrossities is a weary travellers’ guide to the new curiosities of
+            South London, New Cross, Deptford, and beyond:
+          </p>
+          <ul>
+            <li>Curated and opinionated.</li>
+            <li>
+              <strong>Underground, weird and funny.</strong>
+            </li>
+            <li>Completely incomplete</li>
+          </ul>
+          © {new Date().getFullYear()} - Made by
           {` `}
-          <a href="https://www.louiechristie.com">Louie Christie</a>
+          <Link
+            to="https://www.louiechristie.com"
+            style={{
+              color: `white`,
+            }}
+          >
+            Louie Christie
+          </Link>
         </footer>
       </div>
     </>

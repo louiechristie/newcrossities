@@ -4,9 +4,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Newcrossities`,
-    description:
-      "Newcrossities: a weary travellers’ guide to the new curiosities of South London, New Cross, Deptford, and beyond. Curated and opinionated Underground, weird and funny Completely incomplete",
+    title: `Newcrossities [Beta]`,
+    description: "A funny guide to South London",
     author: `Louie Christie`,
   },
   plugins: [
