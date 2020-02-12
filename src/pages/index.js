@@ -12,6 +12,11 @@ const IndexPage = () => (
 
     <ul>
       <li>
+        <Link to="/eurostar-international-arrivals/">
+          Eurostar International Arrivals
+        </Link>
+      </li>
+      <li>
         <Link to="/vegan-rasta/">Vegan Rasta</Link>
       </li>
       <li>
