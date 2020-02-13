@@ -7,13 +7,14 @@ html {
   align-items: center;
 }
 body {
-  margin: 10 0;
-  padding: 20px;
-  max-width: 960px;
-  border: 1px solid grey;
-  border-radius: 5px;
+  margin: 0;
+  padding: 10px;
+  max-width: 640px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+.aligncenter {
+  margin: 0 auto;
 }
 img,
 video {
@@ -636,8 +637,4 @@ footer,
 .subtitle {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-}
-
-p {
-  max-width: 640px;
 }
