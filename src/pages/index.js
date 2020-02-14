@@ -53,10 +53,9 @@ const IndexPage = () => {
     <Layout>
       <SEO title="Home" />
 
-      <h2>Map</h2>
-      {typeof window !== "undefined" ? <Map places={places} /> : null}
+      <p className="select">Select a curiosity:</p>
 
-      <h2>Places</h2>
+      {typeof window !== "undefined" ? <Map places={places} /> : null}
 
       <ul>
         {places.map(place => {
@@ -67,8 +66,6 @@ const IndexPage = () => {
           )
         })}
       </ul>
-
-      <Link to="/about/">About</Link>
     </Layout>
   )
 }
