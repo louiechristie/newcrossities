@@ -1,5 +1,6 @@
 :root {
   --padding: 10px;
+  --max-width: 100%;
 }
 
 html {
@@ -17,6 +18,9 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+main {
+  max-width: 100%;
+}
 .aligncenter {
   margin: 0 auto;
 }
@@ -29,8 +33,22 @@ body {
   pointer-events: initial;
 }
 img,
-video {
+figure,
+video,
+.wp-block-embed {
   max-width: 100%;
+}
+.instagram-media {
+  max-width: 100% !important;
+  min-width: auto !important;
+}
+.instagram-media p {
+  white-space: normal !important;
+}
+.blocks-gallery-grid {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 article,
 aside,
@@ -234,7 +252,6 @@ body {
   font-feature-settings: "kern", "liga", "clig", "calt";
 }
 img {
-  max-width: 100%;
   margin-left: 0;
   margin-right: 0;
   margin-top: 0;
