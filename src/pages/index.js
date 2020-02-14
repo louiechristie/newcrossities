@@ -1,47 +1,76 @@
 import React from "react"
 import { Link } from "gatsby"
+import Map from "../components/map"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" />
+const IndexPage = () => {
+  const places = [
+    {
+      position: [51.5318912, -0.1268506],
+      url: "/eurostar-international-arrivals/",
+      title: "Eurostar International Arrivals",
+    },
+    {
+      position: [51.4710792, -0.0702339],
+      url: "/vegan-rasta/",
+      title: "Vegan Rasta",
+    },
+    {
+      position: [51.4812, -0.003783],
+      url: "/the-queens-house/",
+      title: "The Queens House",
+    },
+    {
+      position: [56.9515043, 24.1078629],
+      url: "/dzintara-cela/",
+      title: "Dzintara Cela",
+    },
+    {
+      position: [51.4938, -0.0905],
+      url: "/rest-up-hostel/",
+      title: "Rest Up Hostel",
+    },
+    {
+      position: [51.503611, -0.018333],
+      url: "/canary-wharf/",
+      title: "Canary Wharf",
+    },
+    {
+      position: [51.483576, -0.081841],
+      url: "/burgess-park/",
+      title: "Burgess Park",
+    },
+    {
+      position: [51.4977, -0.04918],
+      url: "/canada-water-library-cafe/",
+      title: "Canada Water Library Cafe",
+    },
+  ]
 
-    <h2>Places:</h2>
+  return (
+    <Layout>
+      <SEO title="Home" />
 
-    <ul>
-      <li>
-        <Link to="/eurostar-international-arrivals/">
-          Eurostar International Arrivals
-        </Link>
-      </li>
-      <li>
-        <Link to="/vegan-rasta/">Vegan Rasta</Link>
-      </li>
-      <li>
-        <Link to="/the-queens-house/">The Queens House</Link>
-      </li>
-      <li>
-        <Link to="/dzintara-cela/">Dzintara Cela</Link>
-      </li>
-      <li>
-        <Link to="/rest-up-hostel/">Rest Up Hostel</Link>
-      </li>
-      <li>
-        <Link to="/canary-wharf/">Canary Wharf</Link>
-      </li>
-      <li>
-        <Link to="/burgess-park/">Burgess Park</Link>
-      </li>
-      <li>
-        <Link to="/canada-water-library-cafe/">Canada Water Library Cafe</Link>
-      </li>
-      <li>
-        <Link to="/about/">About</Link>
-      </li>
-    </ul>
-  </Layout>
-)
+      <h2>Map</h2>
+      {typeof window !== "undefined" ? <Map places={places} /> : null}
+
+      <h2>Places</h2>
+
+      <ul>
+        {places.map(place => {
+          return (
+            <li>
+              <Link to={place.url}>{place.title}</Link>
+            </li>
+          )
+        })}
+      </ul>
+
+      <Link to="/about/">About</Link>
+    </Layout>
+  )
+}
 
 export default IndexPage

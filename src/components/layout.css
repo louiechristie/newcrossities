@@ -1,3 +1,7 @@
+:root {
+  --padding: 10px;
+}
+
 html {
   font-family: sans-serif;
   -ms-text-size-adjust: 100%;
@@ -8,13 +12,21 @@ html {
 }
 body {
   margin: 0;
-  padding: 10px;
+  padding: var(--padding);
   max-width: 640px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 .aligncenter {
   margin: 0 auto;
+}
+.leaflet-container {
+  width: 100%;
+  height: 400px;
+  margin-bottom: 2em;
+}
+.leaflet-tooltip-pane > .leaflet-tooltip {
+  pointer-events: initial;
 }
 img,
 video {
