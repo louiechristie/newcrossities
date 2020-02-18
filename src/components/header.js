@@ -2,13 +2,13 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 
-const Header = ({ siteTitle }) => (
+const Header = ({ title, description }) => (
   <header>
     <p className="siteTitle">
-      <Link to="/">{siteTitle}</Link>
+      <Link to="/">{title}</Link>
     </p>
 
-    <p className="subtitle">A funny guide to South London</p>
+    <p className="subtitle">{description}</p>
   </header>
 )
 

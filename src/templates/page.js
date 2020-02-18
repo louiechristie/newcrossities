@@ -1,10 +1,11 @@
 import React from "react"
 import { graphql } from "gatsby"
+import contentParser from "gatsby-wpgraphql-inline-images"
+import FluidImage from "../components/fluidImage"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 
-const Page = props => {
-  let sourceUrl, altText
+export default props => {
   console.log("props: ", props)
 
   const {
@@ -15,9 +16,9 @@ const Page = props => {
 
   const { title, content, featuredImage } = page
 
-  if (featuredImage) {
-    sourceUrl = featuredImage.sourceUrl
-    altText = featuredImage.altText
+  const pluginOptions = {
+    wordPressUrl: `${process.env.CMS_URL}`,
+    uploadsUrl: `${process.env.CMS_URL}/wp-content/uploads/`,
   }
 
   return (
@@ -25,16 +26,22 @@ const Page = props => {
       <SEO title={title} />
       <h1>{title}</h1>
 
-      <img src={sourceUrl || ""} alt={altText || ""} />
+      {featuredImage && <FluidImage image={featuredImage} />}
 
-      <div dangerouslySetInnerHTML={{ __html: content }} />
+      <div>{contentParser({ content }, pluginOptions)}</div>
     </Layout>
   )
 }
 
-export default Page
-
 export const pageQuery = graphql`
+  fragment GatsbyImageSharpFluid_tracedSVG on ImageSharpFluid {
+    tracedSVG
+    aspectRatio
+    src
+    srcSet
+    sizes
+  }
+
   query GET_PAGE($id: ID!) {
     wpgraphql {
       page(id: $id) {
@@ -42,8 +49,15 @@ export const pageQuery = graphql`
         content
         uri
         featuredImage {
+          sourceUrl
           altText
-          sourceUrl(size: LARGE)
+          imageFile {
+            childImageSharp {
+              fluid(maxWidth: 640, quality: 90, fit: CONTAIN) {
+                ...GatsbyImageSharpFluid_tracedSVG
+              }
+            }
+          }
         }
       }
     }

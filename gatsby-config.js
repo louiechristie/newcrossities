@@ -4,8 +4,8 @@ require("dotenv").config({
 
 module.exports = {
   siteMetadata: {
-    title: `Newcrossities [Beta]`,
-    description: "A funny guide to South London",
+    title: `Newcrossities`,
+    description: "A funny guide to South London [Beta]",
     author: `Louie Christie`,
   },
   plugins: [
@@ -13,9 +13,9 @@ module.exports = {
     {
       resolve: `gatsby-source-graphql`,
       options: {
-        typeName: `WPGraphql`,
+        typeName: `WPGraphQL`,
         fieldName: `wpgraphql`,
-        url: process.env.API_URL,
+        url: `${process.env.CMS_URL}/graphql`,
       },
     },
     {
@@ -27,6 +27,15 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: "gatsby-wpgraphql-inline-images",
+      options: {
+        wordPressUrl: `${process.env.CMS_URL}`,
+        uploadsUrl: `${process.env.CMS_URL}/wp-content/uploads/`,
+        processPostTypes: ["Page"],
+        graphqlTypeName: "WPGraphQL",
+      },
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {

@@ -19,14 +19,17 @@ const Layout = ({ children }) => {
       site {
         siteMetadata {
           title
+          description
         }
       }
     }
   `)
 
+  const { title, description } = data.site.siteMetadata
+
   return (
     <>
-      <Header siteTitle={data.site.siteMetadata.title} />
+      <Header title={title} description={description} />
 
       <main>{children}</main>
 
