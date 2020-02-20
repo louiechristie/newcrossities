@@ -8,6 +8,11 @@ import SEO from "../components/seo"
 const IndexPage = () => {
   const places = [
     {
+      position: [51.4777, -0.0276],
+      url: "/the-albany/",
+      title: "The Albany",
+    },
+    {
       position: [51.5318912, -0.1268506],
       url: "/eurostar-international-arrivals/",
       title: "Eurostar International Arrivals",

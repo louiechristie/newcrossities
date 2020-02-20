@@ -78,6 +78,10 @@ figure,
 video,
 .wp-block-embed {
   max-width: 100%;
+  overflow: scroll;
+}
+iframe {
+  max-width: 320px; /* workaround for youtube width */
 }
 .instagram-media {
   max-width: 100% !important;
