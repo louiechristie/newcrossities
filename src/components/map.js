@@ -2,28 +2,10 @@ import React from "react"
 import { Map as LeafletMap, TileLayer, Marker, Tooltip } from "react-leaflet"
 import { Link } from "gatsby"
 
-// /**
-//  * From https://github.com/PaulLeCam/react-leaflet/issues/255#issuecomment-388492108
-//  */
-// import L from "leaflet"
-
-// import "leaflet/dist/leaflet.css"
-
-// // stupid hack so that leaflet's images work after going through webpack
-// import marker from "leaflet/dist/images/marker-icon.png"
-// import marker2x from "leaflet/dist/images/marker-icon-2x.png"
-// import markerShadow from "leaflet/dist/images/marker-shadow.png"
-
-// // delete L.Icon.Default.prototype._getIconUrl
-
-// L.Icon.Default.mergeOptions({
-//   iconRetinaUrl: marker2x,
-//   iconUrl: marker,
-//   shadowUrl: markerShadow,
-// })
-// /**
-//  * End of from https://github.com/PaulLeCam/react-leaflet/issues/255#issuecomment-388492108
-//  */
+const MapContainer = props => {
+  // Fix because react-leaflet isn't true React.
+  return <div>{typeof window !== "undefined" && <Map {...props} />}</div>
+}
 
 const Map = props => {
   const zoom = 12
@@ -41,12 +23,30 @@ const Map = props => {
       />
 
       {places.map(place => {
-        const { position, url, title } = place
+        const {
+          id,
+          uri,
+          title,
+          location: { latitude, longitude },
+        } = place
+
+        // Transform to leaflet.js schema
+        const position = {
+          lat: latitude,
+          lng: longitude,
+        }
+
+        if (!latitude || !longitude) {
+          return null
+        }
+
         return (
-          <Marker opacity={0.5} position={position}>
+          <Marker key={id} opacity={0.5} position={position}>
+            (
             <Tooltip permanent direction="center">
-              <Link to={url}>{title}</Link>
+              <Link to={uri}>{title}</Link>
             </Tooltip>
+            )
           </Marker>
         )
       })}
@@ -54,4 +54,4 @@ const Map = props => {
   )
 }
 
-export default Map
+export default MapContainer

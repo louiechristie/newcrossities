@@ -4,6 +4,7 @@ import contentParser from "gatsby-wpgraphql-inline-images"
 import FluidImage from "../components/fluidImage"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
+import Map from "../components/map"
 
 export default props => {
   console.log("props: ", props)
@@ -14,7 +15,7 @@ export default props => {
     },
   } = props
 
-  const { title, content, featuredImage } = page
+  const { id, title, uri, content, featuredImage, location } = page
 
   const pluginOptions = {
     wordPressUrl: `${process.env.CMS_URL}`,
@@ -29,6 +30,10 @@ export default props => {
       {featuredImage && <FluidImage image={featuredImage} />}
 
       <div>{contentParser({ content }, pluginOptions)}</div>
+
+      <h2>Location</h2>
+
+      <Map places={[{ id, title, uri, location }]} />
     </Layout>
   )
 }
@@ -45,9 +50,14 @@ export const pageQuery = graphql`
   query GET_PAGE($id: ID!) {
     wpgraphql {
       page(id: $id) {
+        id
         title
         content
         uri
+        location {
+          latitude
+          longitude
+        }
         featuredImage {
           sourceUrl
           altText
