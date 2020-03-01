@@ -7,7 +7,12 @@ import SEO from "../components/seo"
 import Map from "../components/map"
 
 export default props => {
-  console.log("props: ", props)
+  // console.log("props: ", props)
+
+  const pluginOptions = {
+    wordPressUrl: `${process.env.CMS_URL}`,
+    uploadsUrl: `${process.env.CMS_URL}/wp-content/uploads/`,
+  }
 
   const {
     data: {
@@ -16,11 +21,6 @@ export default props => {
   } = props
 
   const { id, title, uri, content, featuredImage, location } = page
-
-  const pluginOptions = {
-    wordPressUrl: `${process.env.CMS_URL}`,
-    uploadsUrl: `${process.env.CMS_URL}/wp-content/uploads/`,
-  }
 
   return (
     <Layout>

@@ -41,7 +41,7 @@ const Map = props => {
         }
 
         return (
-          <Marker key={id} opacity={0.5} position={position}>
+          <Marker key={id} opacity={0.4} position={position}>
             (
             <Tooltip permanent direction="center">
               <Link to={uri}>{title}</Link>

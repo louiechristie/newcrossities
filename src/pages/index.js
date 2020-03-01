@@ -8,7 +8,7 @@ const Index = () => {
   const data = useStaticQuery(graphql`
     query GET_PAGES {
       wpgraphql {
-        pages {
+        pages(first: 100, where: { orderby: { field: DATE, order: DESC } }) {
           nodes {
             id
             uri
@@ -25,7 +25,13 @@ const Index = () => {
     }
   `)
 
-  const places = data.wpgraphql.pages.nodes
+  const {
+    wpgraphql: {
+      pages: { nodes },
+    },
+  } = data
+
+  const places = [...nodes].reverse()
 
   return (
     <Layout>
@@ -36,7 +42,7 @@ const Index = () => {
       <Map places={places} />
 
       <ul>
-        {places.map(place => {
+        {nodes.map(place => {
           const { id, uri, title } = place
 
           return (

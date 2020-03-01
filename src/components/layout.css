@@ -12,6 +12,7 @@ html {
 body {
   margin: 0;
   padding: var(--padding);
+  padding-bottom: 0;
   max-width: 640px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -21,15 +22,24 @@ footer {
   padding: 1.0875rem;
   border-radius: 5px;
   color: white;
-  background-color: rebeccapurple;
+  background-color: #db0000;
 }
-header {
-  margin-bottom: 1rem;
+nav {
+  /* display: flex; */
+  margin-top: 1rem;
+}
+.logo-container,
+.title-container {
+  display: inline-block;
+}
+.logo {
+  width: 50px;
+  margin-right: 10px;
 }
 .siteTitle {
   margin: 0;
   padding: 0;
-  margin-bottom: 0.6rem;
+  margin-bottom: 0.4rem;
   color: inherit;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
@@ -46,7 +56,10 @@ footer {
 }
 header a {
   color: white;
-  text-decoration: none;
+}
+header a:hover {
+  color: white;
+  text-decoration: inherit;
 }
 footer > a {
   color: white;
@@ -58,9 +71,6 @@ footer > a {
 main {
   padding: var(--padding);
   max-width: 100%;
-}
-.aligncenter {
-  margin: 0 auto;
 }
 .leaflet-container {
   width: 100%;
@@ -716,4 +726,27 @@ footer,
 .cta {
   margin-top: 10px;
   text-align: center;
+}
+
+.tag {
+  display: block;
+  text-align: right;
+  text-decoration: none;
+  text-align: right;
+  position: relative;
+  bottom: -4px;
+  right: -4px;
+  opacity: 0.5;
+}
+figure {
+  background-color: #f5f5dc;
+}
+figcaption {
+  padding-left: 1em;
+  padding-right: 1em;
+  padding-bottom: 1em;
+  font-size: 80%;
+}
+.home-link {
+  text-decoration: underline;
 }
