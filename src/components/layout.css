@@ -24,6 +24,14 @@ footer {
   color: white;
   background-color: #db0000;
 }
+header {
+  display: flex;
+  flex-direction: column;
+}
+.bar {
+  display: flex;
+  flex-direction: row;
+}
 nav {
   /* display: flex; */
   margin-top: 1rem;
@@ -47,6 +55,7 @@ nav {
   text-rendering: optimizeLegibility;
   font-size: 1.75rem;
   line-height: 1.2;
+  text-decoration: none;
 }
 .select {
   font-weight: bold;
@@ -54,17 +63,21 @@ nav {
 footer {
   margin-top: 1rem;
 }
-header a {
+.home-link {
+  text-decoration: none;
   color: white;
 }
-header a:hover {
-  color: white;
-  text-decoration: inherit;
+.home-link-nav {
+  text-decoration: underline;
+}
+.home-link a:hover {
+  color: #cccccc;
 }
 footer > a {
   color: white;
 }
 .subtitle {
+  text-decoration: none;
   color: white;
   margin: 0;
 }
@@ -746,7 +759,4 @@ figcaption {
   padding-right: 1em;
   padding-bottom: 1em;
   font-size: 80%;
-}
-.home-link {
-  text-decoration: underline;
 }

@@ -37,9 +37,9 @@ const Index = () => {
     <Layout>
       <SEO title="Home" />
 
-      <p className="select">Select a curiosity:</p>
-
       <Map places={places} />
+
+      <p className="select">Select a curiosity:</p>
 
       <ul>
         {nodes.map(place => {
