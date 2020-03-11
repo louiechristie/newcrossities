@@ -17,7 +17,7 @@ const Map = props => {
   return (
     <LeafletMap {...props} center={canadaWaterLibraryPosition} zoom={zoom}>
       <TileLayer
-        url="http://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
+        url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         attribution="© OpenStreetMap Contributors. Tiles courtesy of Humanitarian 
         OpenStreetMap Team"
       />

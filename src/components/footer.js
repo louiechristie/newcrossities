@@ -26,7 +26,7 @@ const Footer = () => (
       </Link>
     </footer>
 
-    <p class="cta">
+    <p className="cta">
       <a href="https://blog.louiechristie.com/contact/">
         Want website like this one? *
       </a>
