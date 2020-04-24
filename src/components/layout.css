@@ -63,12 +63,26 @@ nav {
 footer {
   margin-top: 1rem;
 }
+.copyright {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-top: 10px;
+}
 .home-link {
   text-decoration: none;
   color: white;
 }
-.home-link-nav {
+nav > ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+.link-nav {
   text-decoration: underline;
+  display: inline;
+  margin-right: 10px;
 }
 .home-link a:hover {
   color: #cccccc;

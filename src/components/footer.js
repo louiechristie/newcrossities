@@ -1,5 +1,5 @@
 import React from "react"
-import { Link } from "gatsby"
+import Nav from "./nav"
 
 const Footer = () => (
   <>
@@ -15,24 +15,23 @@ const Footer = () => (
         </li>
         <li>Completely incomplete</li>
       </ul>
-      © {new Date().getFullYear()} Newcrossities -{` `}
-      <Link
-        to="/about/"
-        style={{
-          color: `white`,
-        }}
-      >
-        About
-      </Link>
+      <Nav />
     </footer>
 
-    <p className="cta">
-      <a href="https://blog.louiechristie.com/contact/">
-        Want website like this one? *
-      </a>
-      <br />
-      <small>(*other colors/styles are available)</small>
-    </p>
+    <div className="cta">
+      <p>
+        <a href="https://www.louiechristie.com/blog/contact/">
+          Want a website like this one?
+        </a>
+        <br />
+        <small>* other colors/styles are available</small>
+      </p>
+      <p>
+        <div className="copyright">
+          <small>© {new Date().getFullYear()} Newcrossities</small>
+        </div>
+      </p>
+    </div>
   </>
 )
 

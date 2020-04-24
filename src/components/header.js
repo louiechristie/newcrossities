@@ -1,6 +1,7 @@
+import React from "react"
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React from "react"
+import Nav from "./nav"
 
 const Header = ({ title, description }) => (
   <Link to="/" className="home-link">
@@ -53,7 +54,7 @@ const Header = ({ title, description }) => (
           <p className="subtitle">{description}</p>
         </div>
       </div>
-      <nav className="home-link-nav">Home</nav>
+      <Nav />
     </header>
   </Link>
 )
