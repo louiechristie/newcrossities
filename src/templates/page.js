@@ -24,7 +24,7 @@ export default (props) => {
 
   return (
     <Layout>
-      <SEO title={title} image={featuredImage} />
+      <SEO title={title} image={featuredImage} article />
       <h1>{title}</h1>
 
       {featuredImage && <FluidImage image={featuredImage} />}
