@@ -22,9 +22,20 @@ export default (props) => {
 
   const { id, title, uri, content, featuredImage, location } = page
 
+  const regex = /<p>(.*?)<\/p>/
+  const corresp = regex.exec(content)
+  const firstParagraphWithoutHtml = corresp
+    ? `${corresp[1].replace(/(<([^>]+)>)/gi /* strip html tags */, "")}...`
+    : ""
+
   return (
     <Layout>
-      <SEO title={title} image={featuredImage} article />
+      <SEO
+        title={title}
+        image={featuredImage}
+        article
+        description={firstParagraphWithoutHtml}
+      />
       <h1>{title}</h1>
 
       {featuredImage && <FluidImage image={featuredImage} />}
