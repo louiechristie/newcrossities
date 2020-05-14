@@ -2,12 +2,15 @@ require("dotenv").config({
   path: `.env`,
 })
 
+const siteMetadata = {
+  title: `Newcrossities`,
+  description: "A funny guide to South London [Beta]",
+  author: `Louie Christie`,
+  siteUrl: `https://www.newcrossities.com/`,
+}
+
 module.exports = {
-  siteMetadata: {
-    title: `Newcrossities`,
-    description: "A funny guide to South London [Beta]",
-    author: `Louie Christie`,
-  },
+  siteMetadata,
   plugins: [
     `gatsby-plugin-react-helmet`,
     {
@@ -54,6 +57,8 @@ module.exports = {
         linkStyles: true, // (default: true) Enable/disable loading stylesheets via CDN
       },
     },
+    "gatsby-plugin-instagram-embed",
+    "gatsby-plugin-twitter",
     // this (optional) plugin enables Progressive Web App + Offline functionality
     // To learn more, visit: https://gatsby.dev/offline
     // `gatsby-plugin-offline`,

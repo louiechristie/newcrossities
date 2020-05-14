@@ -6,7 +6,7 @@ import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Map from "../components/map"
 
-export default props => {
+export default (props) => {
   // console.log("props: ", props)
 
   const pluginOptions = {
@@ -24,7 +24,7 @@ export default props => {
 
   return (
     <Layout>
-      <SEO title={title} />
+      <SEO title={title} image={featuredImage} />
       <h1>{title}</h1>
 
       {featuredImage && <FluidImage image={featuredImage} />}
@@ -65,6 +65,9 @@ export const pageQuery = graphql`
             childImageSharp {
               fluid(maxWidth: 640, quality: 90, fit: CONTAIN) {
                 ...GatsbyImageSharpFluid_tracedSVG
+              }
+              fixed(width: 1200, height: 630) {
+                src
               }
             }
           }
