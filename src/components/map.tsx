@@ -5,7 +5,6 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 const MapContainer = props => {
   // Fix because react-leaflet isn't true React.
   return <div className="map-container">
-    {typeof window === "undefined" && <div className="loading">Map loading...</div>}
     {typeof window !== "undefined" && <Map {...props} />}
   </div>
 }
@@ -21,7 +20,7 @@ const Map = props => {
 
   type Place = {
     location: Location,
-    url: String,
+    uri: String,
     title: String
   }
 
@@ -96,7 +95,7 @@ const Map = props => {
 
       <Marker opacity={0.4} position={{lat: featured?.location?.latitude, lng: featured?.location?.longitude}}> 
         <Tooltip permanent direction="center">
-          <Link to={`/${featured?.url}`}>{featured?.title}</Link>
+          <Link to={`/${featured?.uri}`}>{featured?.title}</Link>
         </Tooltip>
       </Marker>
     </LeafletMap>

@@ -100,6 +100,7 @@ main {
   max-width: 100%;
 }
 .map-container {
+  background-color: #ccc;
   margin-bottom: 2em;
 }
 .map-container, .map {
@@ -122,13 +123,13 @@ video,
 iframe {
   max-width: 320px; /* workaround for youtube width */
 }
-/* .instagram-media {
+.instagram-media {
   max-width: 100% !important;
   min-width: auto !important;
 }
 .instagram-media p {
   white-space: normal !important;
-} */
+}
 .blocks-gallery-grid {
   list-style-type: none;
   margin: 0;
@@ -778,10 +779,4 @@ figcaption {
 }
 .date {
   color: grey;
-}
-.loading {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #ccc;
 }
