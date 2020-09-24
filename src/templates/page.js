@@ -42,9 +42,13 @@ export default (props) => {
 
       <div>{contentParser({ content }, pluginOptions)}</div>
 
-      <h2>Location</h2>
-
-      <Map featured={{ id, title, uri, location }} />
+      {location?.latitude && location?.longitude && (
+        <>
+          <h2>Location</h2>
+          
+          <Map featured={{ id, title, uri, location }} />
+        </>
+      )}
     </Layout>
   )
 }
