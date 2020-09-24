@@ -99,10 +99,12 @@ main {
   padding: var(--padding);
   max-width: 100%;
 }
-.leaflet-container {
+.map-container {
+  margin-bottom: 2em;
+}
+.map-container, .map {
   width: 100%;
   height: 400px;
-  margin-bottom: 2em;
 }
 .leaflet-tooltip-pane > .leaflet-tooltip {
   pointer-events: initial;
@@ -120,13 +122,13 @@ video,
 iframe {
   max-width: 320px; /* workaround for youtube width */
 }
-.instagram-media {
+/* .instagram-media {
   max-width: 100% !important;
   min-width: auto !important;
 }
 .instagram-media p {
   white-space: normal !important;
-}
+} */
 .blocks-gallery-grid {
   list-style-type: none;
   margin: 0;
@@ -773,4 +775,13 @@ figcaption {
   padding-right: 1em;
   padding-bottom: 1em;
   font-size: 80%;
+}
+.date {
+  color: grey;
+}
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #ccc;
 }

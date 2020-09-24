@@ -4,13 +4,16 @@ import { Link, graphql, useStaticQuery } from "gatsby"
 
 const MapContainer = props => {
   // Fix because react-leaflet isn't true React.
-  return <div>{typeof window !== "undefined" && <Map {...props} />}</div>
+  return <div className="map-container">
+    {typeof window === "undefined" && <div className="loading">Map loading...</div>}
+    {typeof window !== "undefined" && <Map {...props} />}
+  </div>
 }
 
 const Map = props => {
   const zoom = 12
   // const bigBenPosition = [51.5007, -0.1246]
-  const canadaWaterLibraryPosition = [51.4977, -0.04918]
+  // const canadaWaterLibraryPosition = [51.4977, -0.04918]
 
   const { featured } = props
 
@@ -31,7 +34,7 @@ const Map = props => {
   const data = useStaticQuery(graphql`
     query GET_PLACES {
       wpgraphql {
-        pages(first: 100, where: { orderby: { field: DATE, order: DESC } }) {
+        pages(first: 100, where: { orderby: { field: DATE, order: ASC } }) {
           nodes {
             id
             uri
@@ -52,10 +55,10 @@ const Map = props => {
     },
   } = data
 
-  const places = [...nodes].reverse()
+  const places = nodes.filter(({location}) => (location?.latitude && location?.longitude));
 
   return (
-    <LeafletMap {...props} center={{lat: featured?.location?.latitude, lng: featured?.location?.longitude}} zoom={zoom}>
+    <LeafletMap className="map" {...props} center={{lat: featured?.location?.latitude, lng: featured?.location?.longitude}} zoom={zoom}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         attribution="© OpenStreetMap Contributors. Tiles courtesy of Humanitarian 
@@ -82,18 +85,18 @@ const Map = props => {
 
         return (
           <Marker key={id} opacity={0.4} position={position}>
-            (
+            
             <Tooltip permanent direction="center">
-              <Link to={uri}>{title}</Link>
+              <Link to={`/${uri}`}>{title}</Link>
             </Tooltip>
-            )
+            
           </Marker>
         )
       })}
 
       <Marker opacity={0.4} position={{lat: featured?.location?.latitude, lng: featured?.location?.longitude}}> 
         <Tooltip permanent direction="center">
-          <Link to={featured?.url}>{featured?.title}</Link>
+          <Link to={`/${featured?.url}`}>{featured?.title}</Link>
         </Tooltip>
       </Marker>
     </LeafletMap>

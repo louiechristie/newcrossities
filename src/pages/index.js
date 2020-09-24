@@ -1,8 +1,13 @@
 import React from "react"
 import { Link, graphql, useStaticQuery } from "gatsby"
+import * as dayjs from 'dayjs'
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Map from "../components/map"
+
+dayjs().format()
+const relativeTime = require('dayjs/plugin/relativeTime')
+dayjs.extend(relativeTime)
 
 const Index = () => {
   const data = useStaticQuery(graphql`
@@ -19,6 +24,7 @@ const Index = () => {
               latitude
               longitude
             }
+            date
           }
         }
       }
@@ -31,21 +37,23 @@ const Index = () => {
     },
   } = data
 
+  const places = nodes.filter(({location}) => (location?.latitude && location?.longitude));
+
   return (
     <Layout>
       <SEO title="Home" />
 
-      <Map featured={nodes[2]} />
+      <Map featured={places[places.length - 1 ]} />
 
       <p className="select">Select a curiosity:</p>
 
       <ul>
-        {nodes.map(place => {
-          const { id, uri, title } = place
+        {places.map(place => {
+          const { id, uri, title, date } = place
 
           return (
             <li key={id}>
-              <Link to={uri}>{title}</Link>
+              <Link to={uri}>{title}</Link> <span className="date">added {dayjs(date).fromNow()}</span>
             </li>
           )
         })}
