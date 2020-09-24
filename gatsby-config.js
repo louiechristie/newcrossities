@@ -4,7 +4,7 @@ require("dotenv").config({
 
 const siteMetadata = {
   title: `Newcrossities`,
-  description: "A funny guide to South London [Beta]",
+  description: "A funny guide to South London and beyond [Beta]",
   author: `Louie Christie`,
   siteUrl: `https://www.newcrossities.com/`,
 }

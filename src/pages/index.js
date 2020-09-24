@@ -31,13 +31,11 @@ const Index = () => {
     },
   } = data
 
-  const places = [...nodes].reverse()
-
   return (
     <Layout>
       <SEO title="Home" />
 
-      <Map places={places} />
+      <Map featured={nodes[2]} />
 
       <p className="select">Select a curiosity:</p>
 

@@ -44,7 +44,7 @@ export default (props) => {
 
       <h2>Location</h2>
 
-      <Map places={[{ id, title, uri, location }]} />
+      <Map featured={{ id, title, uri, location }} />
     </Layout>
   )
 }

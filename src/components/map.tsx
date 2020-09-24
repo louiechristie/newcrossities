@@ -1,6 +1,6 @@
 import React from "react"
 import { Map as LeafletMap, TileLayer, Marker, Tooltip } from "react-leaflet"
-import { Link } from "gatsby"
+import { Link, graphql, useStaticQuery } from "gatsby"
 
 const MapContainer = props => {
   // Fix because react-leaflet isn't true React.
@@ -12,10 +12,50 @@ const Map = props => {
   // const bigBenPosition = [51.5007, -0.1246]
   const canadaWaterLibraryPosition = [51.4977, -0.04918]
 
-  const { places } = props
+  const { featured } = props
+
+  type Location = [number, number]
+
+  type Place = {
+    location: Location,
+    url: String,
+    title: String
+  }
+
+  interface Props {
+    featured: Place,
+    places: [Place],
+    zoom?: bigint,
+  }
+
+  const data = useStaticQuery(graphql`
+    query GET_PLACES {
+      wpgraphql {
+        pages(first: 100, where: { orderby: { field: DATE, order: DESC } }) {
+          nodes {
+            id
+            uri
+            title
+            location {
+              latitude
+              longitude
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const {
+    wpgraphql: {
+      pages: { nodes },
+    },
+  } = data
+
+  const places = [...nodes].reverse()
 
   return (
-    <LeafletMap {...props} center={canadaWaterLibraryPosition} zoom={zoom}>
+    <LeafletMap {...props} center={{lat: featured?.location?.latitude, lng: featured?.location?.longitude}} zoom={zoom}>
       <TileLayer
         url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
         attribution="© OpenStreetMap Contributors. Tiles courtesy of Humanitarian 
@@ -50,6 +90,12 @@ const Map = props => {
           </Marker>
         )
       })}
+
+      <Marker opacity={0.4} position={{lat: featured?.location?.latitude, lng: featured?.location?.longitude}}> 
+        <Tooltip permanent direction="center">
+          <Link to={featured?.url}>{featured?.title}</Link>
+        </Tooltip>
+      </Marker>
     </LeafletMap>
   )
 }
