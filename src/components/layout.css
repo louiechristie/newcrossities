@@ -84,6 +84,9 @@ nav > ul {
   display: inline;
   margin-right: 10px;
 }
+.link-nav > a {
+  color: white;
+} 
 .home-link a:hover {
   color: #cccccc;
 }

@@ -4,12 +4,13 @@ import PropTypes from "prop-types"
 import Nav from "./nav"
 
 const Header = ({ title, description }) => (
-  <Link to="/" className="home-link">
-    <header>
+  <header>
+    <Link to="/" className="home-link">
       <div className="bar">
         <div className="logo-container">
           <div>
             <svg
+              width="50"
               className="logo"
               viewBox="0 0 350 350"
               xmlns="http://www.w3.org/2000/svg"
@@ -54,9 +55,9 @@ const Header = ({ title, description }) => (
           <p className="subtitle">{description}</p>
         </div>
       </div>
-      <Nav />
-    </header>
-  </Link>
+    </Link>
+    <Nav />
+  </header>
 )
 
 Header.propTypes = {

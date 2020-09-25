@@ -26,10 +26,8 @@ const Footer = () => (
         <br />
         <small>* other colors/styles are available</small>
       </p>
-      <p>
-        <div className="copyright">
+      <p className="copyright">
           <small>© {new Date().getFullYear()} Newcrossities</small>
-        </div>
       </p>
     </div>
   </>

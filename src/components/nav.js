@@ -8,9 +8,6 @@ const Nav = () => {
         <li className="link-nav">
           <Link
             to="/"
-            style={{
-              color: `white`,
-            }}
           >
             Home
           </Link>
@@ -18,9 +15,6 @@ const Nav = () => {
         <li className="link-nav">
           <Link
             to="/about/"
-            style={{
-              color: `white`,
-            }}
           >
             About
           </Link>
