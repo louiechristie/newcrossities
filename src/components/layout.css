@@ -783,3 +783,8 @@ figcaption {
 .date {
   color: grey;
 }
+
+/* fix images */
+.gatsby-image-wrapper {
+  width: 100% !important;
+}
