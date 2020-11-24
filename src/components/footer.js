@@ -24,7 +24,7 @@ const Footer = () => (
           Want a website like this one?
         </a>
         <br />
-        <small>* other colors/styles are available</small>
+        <small>* Other styles/sizes/colors are available</small>
       </p>
       <p className="copyright">
           <small>© {new Date().getFullYear()} Newcrossities</small>
