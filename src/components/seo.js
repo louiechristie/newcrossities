@@ -7,11 +7,24 @@ import { useStaticQuery, graphql } from "gatsby"
 const activeEnv =
   process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
 
+  const query = graphql`
+  query SEO {
+    site {
+      siteMetadata {
+        siteTitle: title
+        siteDescription: description
+        siteUrl
+        monetization
+      }
+    }
+  }
+`
+
 const SEO = ({ title, description, image, article }) => {
   const { pathname } = useLocation()
   const { site } = useStaticQuery(query)
 
-  const { siteTitle, siteDescription } = site.siteMetadata
+  const { siteTitle, siteDescription, monetization } = site.siteMetadata
 
   let siteUrl = ""
 
@@ -54,6 +67,8 @@ const SEO = ({ title, description, image, article }) => {
       )}
 
       {seo.image && <meta name="twitter:image" content={seo.image} />}
+
+      <meta name="monetization" content={monetization} />
     </Helmet>
   )
 }
@@ -73,15 +88,3 @@ SEO.defaultProps = {
   image: null,
   article: false,
 }
-
-const query = graphql`
-  query SEO {
-    site {
-      siteMetadata {
-        siteTitle: title
-        siteDescription: description
-        siteUrl
-      }
-    }
-  }
-`

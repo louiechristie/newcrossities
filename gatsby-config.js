@@ -7,6 +7,7 @@ const siteMetadata = {
   description: "A funny guide to South London and beyond [Beta]",
   author: `Louie Christie`,
   siteUrl: `https://www.newcrossities.com/`,
+  monetization:  `$ilp.gatehub.net/484331722`
 }
 
 module.exports = {
