@@ -99,7 +99,7 @@ footer > a {
   margin: 0;
 }
 main {
-  padding: var(--padding);
+  padding: var(--padding) 0;
   max-width: 100%;
 }
 .map-container {
