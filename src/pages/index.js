@@ -43,7 +43,7 @@ const Index = () => {
     <Layout>
       <SEO title="Home" />
 
-      <Map featured={places[places.length - 1 ]} />
+      <Map featured={places[places.length]} />
 
       <p className="select">Select a curiosity:</p>
 
