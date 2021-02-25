@@ -2,7 +2,7 @@
   "name": "newcrossities",
   "private": true,
   "description": "A funny guide to South London and beyond [Beta]",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "author": "Louie Christie",
   "dependencies": {
     "@types/leaflet": "^1.5.17",
@@ -30,6 +30,8 @@
   },
   "devDependencies": {
     "gatsby-source-graphql": "^2.7.4",
+    "netlify": "^6.1.9",
+    "netlify-cli": "^3.8.6",
     "prettier": "^2.1.2"
   },
   "keywords": [
@@ -43,11 +45,12 @@
     "start": "gatsby develop -H 0.0.0.0",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "deploy": "yarn netlify deploy --dir=public --prod"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/louiechristie/newcrossities"
   },
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
