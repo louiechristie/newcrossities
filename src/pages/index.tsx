@@ -40,11 +40,9 @@ const Index = () => {
     <Layout>
       <SEO title="Home" />
 
-      <div className="post-inner thin">
-
-
       {places && <Map featured={places[Math.round(Math.random() * places.length - 1)]} nodes={places} />}
-
+      
+      <div>
         <div className="entry-content">
           <p className="select">Select a curiosity:</p>
 
