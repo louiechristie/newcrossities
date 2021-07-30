@@ -11,7 +11,7 @@ module.exports = {
   // pathPrefix: "/newcrossities",
   siteMetadata: {
     title: `Newcrossities 😬`,
-    description: `A Weary travellers’ guide to the new curiosities of South London [beta]`,
+    description: `A Weary traveller's guide to the new curiosities of South London [beta]`,
     author: `@louiechristie`,
     siteUrl: process.env.SITE_URL,
     monetization: `$ilp.gatehub.net/484331722`
