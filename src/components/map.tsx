@@ -37,11 +37,15 @@ const Map = (props) => {
     zoom?: bigint
   }
 
-  const location = props.featured?.location;
+  const location = props.featured?.location
 
   const places = nodes?.filter(
     ({ location }) => location?.latitude && location?.longitude
   )
+
+  // console.log('featured?.uri', featured?.uri);
+  // console.log ('window?.location?.pathname', window?.location?.pathname);
+  // console.log ('featured?.uri === window?.location?.pathname', featured?.uri === window?.location?.pathname);
 
   return (
     <div>
@@ -96,15 +100,18 @@ const Map = (props) => {
           }}
         >
           <Tooltip permanent direction="center">
-            <a
-              href={`https://maps.google.com/?q=${location?.latitude},${location?.longitude}&ll=${location?.latitude},${location?.longitude}`}
-            >
-              {featured?.title}
-            </a>
+            {featured?.uri === window?.location?.pathname ? (
+              <a
+                href={`https://maps.google.com/?q=${location?.latitude},${location?.longitude}&ll=${location?.latitude},${location?.longitude}`}
+              >
+                {featured?.title}
+              </a>
+            ) : (
+              <Link to={featured?.uri}>{featured?.title}</Link>
+            )}
           </Tooltip>
         </Marker>
       </LeafletMap>
-      
     </div>
   )
 }
