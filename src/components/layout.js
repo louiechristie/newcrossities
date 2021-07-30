@@ -1,45 +1,42 @@
-/**
- * Layout component that queries for data
- * with Gatsby's useStaticQuery component
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
+import React, { useState } from "react"
+import Header from "./Header"
+import Footer from "./Footer"
 
-import React from "react"
-import PropTypes from "prop-types"
-import { useStaticQuery, graphql } from "gatsby"
+import FooterMenusWidgets from "./FooterMenusWidgets"
+import MenuModal from "./MenuModal"
 
-import Header from "./header"
-import Footer from "./footer"
-import "./layout.css"
+const backdropClasses = " backdrop"
 
-const Layout = ({ children }) => {
-  const data = useStaticQuery(graphql`
-    query SiteTitleQuery {
-      site {
-        siteMetadata {
-          title
-          description
-        }
-      }
-    }
-  `)
+const Layout = ({ children, bodyClass }) => {
+  const [backdropActive, setBackdropActive] = useState(false)
 
-  const { title, description } = data.site.siteMetadata
+  const toggleBackdrop = (e, active) => {
+    e.preventDefault()
+    setBackdropActive(active)
+  }
 
   return (
-    <>
-      <Header title={title} description={description} />
+    <div
+      id={"GatsbyBody"}
+      className={
+        bodyClass +
+        " showing-menu-modal showing-modal" +
+        (backdropActive ? backdropClasses : "")
+      }
+    >
+      <Header toggleBackdrop={toggleBackdrop} />
 
-      <main>{children}</main>
+      <MenuModal isActive={backdropActive} toggleBackdrop={toggleBackdrop} />
+
+      <main id="site-content" role="main">
+        {children}
+      </main>
+
+      <FooterMenusWidgets />
 
       <Footer />
-    </>
+    </div>
   )
-}
-
-Layout.propTypes = {
-  children: PropTypes.node.isRequired,
 }
 
 export default Layout

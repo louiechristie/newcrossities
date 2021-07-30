@@ -1,3 +1,11 @@
+# IDEA
+
+.idea
+
+# WordPress
+WordPress
+.wordpress-cache
+
 # Logs
 logs
 *.log
@@ -16,9 +24,6 @@ lib-cov
 
 # Coverage directory used by tools like istanbul
 coverage
-
-# nyc test coverage
-.nyc_output
 
 # Grunt intermediate storage (http://gruntjs.com/creating-plugins#storing-task-files)
 .grunt
@@ -51,22 +56,20 @@ typings/
 # Output of 'npm pack'
 *.tgz
 
-# dotenv environment variable files
-.env*
-
-# gatsby files
-.cache/
-public
-
-# Mac files
-.DS_Store
-
-# Yarn
-yarn-error.log
-.pnp/
-.pnp.js
 # Yarn Integrity file
 .yarn-integrity
 
-# Local Netlify folder
-.netlify
+# dotenv environment variables file
+.env
+
+.cache/
+public
+blog
+yarn-error.log
+.DS_Store
+.env.*
+!.env.GATSBY_CONCURRENT_DOWNLOAD
+!.env.example
+.DS_Store
+
+

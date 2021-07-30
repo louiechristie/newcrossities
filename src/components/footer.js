@@ -1,36 +1,40 @@
 import React from "react"
-import Nav from "./nav"
+import { Link } from "gatsby"
+import moment from "moment"
 
-const Footer = () => (
-  <>
-    <footer>
-      <p>
-        Newcrossities is a weary travellers’ guide to the new curiosities of
-        South London, New Cross, Deptford, and beyond:
-      </p>
-      <ul>
-        <li>Curated and opinionated.</li>
-        <li>
-          <strong>Underground, weird and funny.</strong>
-        </li>
-        <li>Completely incomplete</li>
-      </ul>
-      <Nav />
-    </footer>
+const Footer = ({}) => {
+  return (
+    <footer id="site-footer" role="contentinfo" className="header-footer-group">
+      <div className="section-inner">
+        <div className="footer-credits">
+          <p className="footer-copyright">© {moment().format("YYYY")} </p>
+          <p>
+            <a
+              className="powered-by-wordpress"
+              href="https://www.louiechristie.com"
+            >
+              By Louie Christie
+            </a>
+          </p>
+        </div>
 
-    <div className="cta">
-      <p>
-        <a href="https://www.louiechristie.com/blog/contact/">
-          Want a website like this one?
+        <a className="to-the-top" href="#site-header">
+          <span className="to-the-top-long">
+            To the top{" "}
+            <span className="arrow" aria-hidden="true">
+              ↑
+            </span>
+          </span>
+          <span className="to-the-top-short">
+            Up{" "}
+            <span className="arrow" aria-hidden="true">
+              ↑
+            </span>
+          </span>
         </a>
-        <br />
-        <small>* Other styles/sizes/colors are available</small>
-      </p>
-      <p className="copyright">
-          <small>© {new Date().getFullYear()} Newcrossities</small>
-      </p>
-    </div>
-  </>
-)
+      </div>
+    </footer>
+  )
+}
 
 export default Footer
