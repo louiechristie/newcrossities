@@ -53,6 +53,7 @@ const Map = (props) => {
           lng: location?.longitude,
         }}
         zoom={zoom}
+        scrollWheelZoom={false}
       >
         <TileLayer
           url="https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png"
