@@ -12,7 +12,7 @@ dayjs.extend(relativeTime)
 const Index = () => {
   const { allWpPage } = useStaticQuery(graphql`
     query GET_PAGES {
-      allWpPage {
+      allWpPage(sort: {order: ASC, fields: date}) {
         nodes {
           id
           uri
@@ -30,7 +30,7 @@ const Index = () => {
 
   if (!allWpPage?.nodes || allWpPage?.nodes === 0) return null
 
-  console.log("allWpPage: ", allWpPage)
+  // console.log("allWpPage: ", allWpPage)
 
   const places = allWpPage?.nodes?.filter(
     ({ location }) => location?.latitude && location?.longitude
