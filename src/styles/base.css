@@ -1,0 +1,34 @@
+@layer base {
+  #___gatsby {
+    @apply text-lg text-text dark:text-dark-text bg-bg dark:bg-dark-bg font-body;
+  }
+
+  a {
+    @apply transition duration-300;
+  }
+
+  h1 {
+    @apply text-3xl font-heading leading-heading sm:text-4xl;
+  }
+  h2 {
+    @apply text-2xl font-heading leading-heading sm:text-3xl;
+  }
+  h3 {
+    @apply text-xl font-heading leading-heading sm:text-2xl;
+  }
+  h4 {
+    @apply text-lg font-heading leading-heading sm:text-xl;
+  }
+  h5 {
+    @apply text-sm font-heading leading-heading;
+  }
+  h6 {
+    @apply text-xs font-heading leading-heading;
+  }
+  table {
+    @apply mb-6;
+  }
+  blockquote {
+    @apply px-5 py-12 border-l-4 sm:px-12 border-accentColor max-w-[800px] mx-auto my-10 bg-teal-50 italic dark:bg-slate-800;
+  }
+}

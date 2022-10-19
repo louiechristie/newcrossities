@@ -15,16 +15,13 @@ London, New Cross, Deptford, and beyond:
 
 ## License
 
-Copyright Louie Christie 2021
-
+Copyright (c) 2022 Louie Christie. All rights reserved.
 ## Technology Used
 
-[Gatsby Starter Wordpress Twenty Twenty Theme](https://github.com/henrikwirth/gatsby-starter-wordpress-twenty-twenty)
-
-A port of the WordPress Twenty Twenty theme to Gatsby.
+[Gatsby WP Themes - Starter Base](https://gatsbywpthemes.com/starters/starter-base/)
 
 [Gatsby](https://www.gatsbyjs.com/)
 
 [React](https://reactjs.org/)
 
-JavaScript and some TypeScript
+JavaScript

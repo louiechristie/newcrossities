@@ -1,0 +1,93 @@
+/* gutenberg */
+.content > * {
+  @apply mx-auto;
+}
+
+.content
+  > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide):not(.content) {
+  @apply max-w-4xl;
+}
+[class*="__inner-container"] > [style*="width: 100vw"],
+[class*="__inner-container"] > [style*="width:100vw"] {
+  @apply !max-w-full;
+}
+[class*="__inner-container"]
+  > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright):not(.is-style-wide) {
+  @apply w-full max-w-4xl;
+}
+.alignnone,
+.aligncenter,
+.alignleft,
+.alignright,
+.alignwide {
+  @apply mx-auto;
+}
+.aligncenter > .gatsby-image-wrapper {
+  @apply mx-auto;
+}
+[class*="__inner-container"]
+  > *:not(.alignwide):not(.alignfull):not(.alignleft):not(.alignright) {
+  @apply mx-auto;
+}
+/* gut Full */
+.alignfull {
+  @apply relative w-full mx-auto my-12;
+}
+.alignfull:first-of-type {
+  @apply mt-0;
+}
+[class*="__inner-container"] > .alignfull {
+  @apply max-w-full;
+}
+.content > .wp-block-group.alignfull.has-background {
+  @apply p-8 sm:p-16 md:p-24;
+}
+.content > .wp-block-cover.alignfull:last-of-type {
+  @apply mb-0;
+}
+/* gut Wide */
+.alignwide {
+  @apply max-w-6xl relative w-[calc(100%-4rem)];
+}
+[class*="__inner-container"] > .alignwide {
+  @apply w-full;
+}
+.wp-block-cover h1,
+.wp-block-cover h2 {
+  @apply my-8;
+}
+.has-background {
+  @apply p-6;
+}
+.wp-block-media-text .wp-block-media-text__content {
+  @apply pt-6 sm:pt-0 px-0 sm:px-[8%];
+}
+.dark-color-mode & .has-background:not(.has-text-color),
+.dark-color-mode & .wp-block-media-text[style*="background"],
+.dark-color-mode & .wp-block-table.is-style-stripes tbody tr:nth-of-type(odd) {
+  @apply bg-blend-multiply;
+}
+[class^="wp-block"] .gatsby-image-wrapper {
+  @apply rounded-none shadow-none;
+}
+.blocks-gallery-grid {
+  @apply max-w-full;
+}
+.wp-block-cover {
+  @apply z-0 mb-10;
+}
+/* Content */
+.content ul {
+  @apply pl-6 mb-6;
+}
+.content ol {
+  @apply pl-6 mb-6;
+}
+.content a,
+.description a {
+  @apply text-black no-underline dark:text-white hover:text-primary;
+}
+
+.content p {
+  @apply mb-5 text-text dark:text-dark-text;
+}

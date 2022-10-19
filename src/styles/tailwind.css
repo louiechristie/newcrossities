@@ -1,0 +1,89 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+@import "base.css";
+@import "wordpress.css";
+
+@layer base {
+}
+
+@layer utilities {
+  .text-upper-spaced {
+    @apply text-xs tracking-widest uppercase;
+  }
+  .input-focus {
+    @apply focus:outline-none focus:ring-gray-200 dark:focus:ring-opacity-25;
+  }
+  input[type="search"]:-webkit-autofill {
+    box-shadow: theme("colors.searchBg") 0px 0px 0px 1000px inset;
+    -webkit-text-fill-color: theme("colors.text");
+  }
+  .dark input[type="search"]:-webkit-autofill {
+    box-shadow: theme("colors.dark.searchBg") 0px 0px 0px 1000px inset;
+    -webkit-text-fill-color: theme("colors.dark.text");
+  }
+}
+
+@layer components {
+  /* Components */
+
+  /* Menu */
+  .menu-item,
+  .menu-item > a {
+    @apply transition duration-300 text-headerColor dark:text-dark-headerColor text-upper-spaced;
+  }
+  .menu-item button {
+    @apply transition duration-500 hover:text-menuHoverColor dark:hover:text-dark-menuHoverColor text-upper-spaced;
+  }
+  .menu-item > a {
+    @apply hover:text-menuHoverColor dark:hover:text-dark-menuHoverColor;
+  }
+  .menuV > .menu-item {
+    @apply py-3 border-b border-dashed border-opacity-40 last:border-none;
+  }
+  .menuV .menu-item a {
+    @apply text-dark-headerColor;
+  }
+  .menu-item [aria-current="page"] {
+    @apply italic;
+  }
+  /* Pagination */
+  .prev-next-text {
+    @apply text-upper-spaced hover:!text-primary;
+  }
+  .prev-next-anim {
+    @apply transition duration-700 scale-x-0 bg-text dark:bg-dark-text  w-7 h-[1px] group-hover:scale-x-100 group-hover:bg-primary;
+  }
+  /* Widgets */
+  .widget-title {
+    @apply mb-3;
+  }
+  .center-container {
+    @apply px-5 mx-auto md:px-6 lg:px-10 w-[100%];
+  }
+  .card {
+    @apply rounded-lg shadow-lg bg-cardBg dark:bg-dark-cardBg;
+  }
+  .divider {
+    @apply bg-text dark:bg-dark-text mx-auto h-[1px] w-[90%] opacity-25;
+  }
+  /* Buttons */
+  .btn {
+    @apply px-6 py-2 text-xs font-semibold tracking-wider text-white uppercase transition duration-500;
+  }
+  .btn-ghost {
+    @apply text-black border-2 border-black shadow-md dark:border-light dark:text-light hover:bg-black dark:hover:bg-light hover:-translate-y-1 hover:shadow-lg hover:!text-light dark:hover:!text-black;
+  }
+  .btn-primary {
+    @apply bg-primary hover:bg-secondary;
+  }
+  .btn-secondary {
+    @apply bg-secondary hover:bg-primary;
+  }
+  /* Forms */
+  .styled-input {
+    @apply input-focus;
+    @apply bg-transparent border-0 border-b-[1px] border-text dark:border-dark-text transition duration-500;
+    @apply dark:focus:border-dark-text focus:border-b-2 focus:border-text;
+  }
+}

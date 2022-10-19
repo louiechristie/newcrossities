@@ -1,42 +1,40 @@
-import React, { useState } from "react"
-import Header from "./Header"
-import Footer from "./Footer"
+import React from "react"
+import { Footer } from "./footer"
+import { Header } from "./header"
+import clsx from "clsx"
+import Helmet from "react-helmet"
+import { HelmetForFavicon } from "./HelmetForFavicon"
 
-import FooterMenusWidgets from "./FooterMenusWidgets"
-import MenuModal from "./MenuModal"
+export const Layout = ({ children, page, type = "page", ...props }) => {
+  const layoutClass = page !== undefined ? (page.slug ? page.slug : page) : ""
+  const pageTemplate = page?.headlesswp?.pageTemplate
 
-const backdropClasses = " backdrop"
-
-const Layout = ({ children, bodyClass }) => {
-  const [backdropActive, setBackdropActive] = useState(false)
-
-  const toggleBackdrop = (e, active) => {
-    e.preventDefault()
-    setBackdropActive(active)
-  }
+  const fullWidthClass = pageTemplate === "full width" ? "fullWidth" : ""
+  const devMode = process.env.NODE_ENV === "development"
 
   return (
     <div
-      id={"GatsbyBody"}
-      className={
-        bodyClass +
-        " showing-menu-modal showing-modal" +
-        (backdropActive ? backdropClasses : "")
-      }
+      className={clsx(
+        "flex min-h-screen flex-col",
+        `${layoutClass}-${type}`,
+        fullWidthClass
+      )}
     >
-      <Header toggleBackdrop={toggleBackdrop} />
-
-      <MenuModal isActive={backdropActive} toggleBackdrop={toggleBackdrop} />
-
-      <main id="site-content" role="main">
+      <HelmetForFavicon />
+      <Helmet
+        bodyAttributes={{
+          class: devMode ? "debug-screens" : "",
+        }}
+      />
+      <Header />
+      <main
+        className={`${
+          pageTemplate !== "full width" ? "py-16 center-container" : "pb-10"
+        }`}
+      >
         {children}
       </main>
-
-      <FooterMenusWidgets />
-
       <Footer />
     </div>
   )
 }
-
-export default Layout
