@@ -5,10 +5,10 @@ import { ParsedContent, ActivatePageScripts } from "~/utils"
 import { Seo } from "@gatsbywpthemes/gatsby-plugin-wp-seo"
 import { useThemeOptions } from "@gatsbywpthemes/gatsby-theme-blog-data/src/hooks"
 import clsx from "clsx"
+import Map from "~/components/Map"
 
-
-const Page = ({ page, ctx }) => {
-  const { title, isFrontPage, content, uri, headlesswp } = page
+const Page = ({ page, ctx, places }) => {
+  const { title, isFrontPage, content, uri, headlesswp, location, id } = page
   const { widgetAreas, layoutWidth } = useThemeOptions()
   const { sidebarWidgets } = widgetAreas
 
@@ -20,6 +20,7 @@ const Page = ({ page, ctx }) => {
 
   const featuredImage =
     page.featuredImage?.node.localFile.childImageSharp?.original
+
   return (
     <Layout page={page} type="page">
       <Seo
@@ -68,6 +69,41 @@ const Page = ({ page, ctx }) => {
             <div className={clsx("content")}>
               <ActivatePageScripts />
               <ParsedContent content={content} />
+
+              {location?.longitude && location?.latitude && (
+                <>
+                  <div className="entry-content">
+                    <h2 className="location">Location</h2>
+
+                    <figure>
+                      <Map
+                        featured={{ id, title, uri, location }}
+                        nodes={places.nodes}
+                      />
+
+                      <figcaption>
+                        Navigate there using{" "}
+                        <a
+                          href={`https://maps.google.com/?q=${location?.latitude},${location?.longitude}&ll=${location?.latitude},${location?.longitude}`}
+                        >
+                          Google Maps
+                        </a>{" "}
+                        <a
+                          href={`http://maps.apple.com/?sll=${location?.latitude},${location?.longitude}&z=10&t=s`}
+                        >
+                          Apple Maps
+                        </a>
+                        , or{" "}
+                        <a
+                          href={`geo:${location?.latitude},${location?.longitude}`}
+                        >
+                          another map app
+                        </a>
+                      </figcaption>
+                    </figure>
+                  </div>
+                </>
+              )}
             </div>
           </div>
           {hasSidebar && (

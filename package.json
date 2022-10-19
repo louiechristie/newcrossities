@@ -21,15 +21,22 @@
     "@headlessui/react": "^1.7.3",
     "@kunukn/react-collapse": "^2.2.9",
     "gatsby": "^4.24.4",
+    "gatsby-plugin-react-leaflet": "^3.0.2",
+    "leaflet": "^1.7.1",
     "local-storage": "^2.0.0",
     "lodash.merge": "^4.6.2",
+    "patch-package": "^6.4.7",
+    "postinstall-postinstall": "^2.1.0",
     "prismjs": "^1.29.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-icons": "^4.6.0"
+    "react-icons": "^4.6.0",
+    "react-leaflet": "^3.2.0"
   },
   "devDependencies": {
+    "@types/leaflet": "^1.7.4",
     "babel-preset-gatsby": "^2.24.0",
+    "gatsby-plugin-sharp-exif": "^1.0.4",
     "prettier": "^2.7.1"
   }
 }

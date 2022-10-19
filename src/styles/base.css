@@ -31,4 +31,18 @@
   blockquote {
     @apply px-5 py-12 border-l-4 sm:px-12 border-accentColor max-w-[800px] mx-auto my-10 bg-teal-50 italic dark:bg-slate-800;
   }
+  .map-container {
+    background-color: #ccc;
+    margin-bottom: 2em;
+    position: relative;
+    z-index: 1;
+  }
+  .map-container,
+  .map {
+    width: 100%;
+    height: 400px;
+  }
+  .leaflet-tooltip-pane > .leaflet-tooltip {
+    pointer-events: initial;
+  }
 }

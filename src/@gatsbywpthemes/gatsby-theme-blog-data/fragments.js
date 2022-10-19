@@ -43,6 +43,10 @@ export const fragments = graphql`
         uri
       }
     }
+    location {
+      latitude
+      longitude
+    }
   }
 
   fragment GatsbyImageQuery_starter on WpMediaItem {

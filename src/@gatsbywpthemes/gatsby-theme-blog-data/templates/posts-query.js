@@ -10,5 +10,16 @@ export const pageQuery = graphql`
         ...PostTemplateFragment_starter
       }
     }
+    allWpPage(sort: { fields: date, order: ASC }) {
+      nodes {
+        title
+        id
+        uri
+        location {
+          latitude
+          longitude
+        }
+      }
+    }
   }
 `

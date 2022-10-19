@@ -6,9 +6,10 @@ import { Seo } from "@gatsbywpthemes/gatsby-plugin-wp-seo"
 import { useThemeOptions } from "@gatsbywpthemes/gatsby-theme-blog-data/src/hooks"
 import { Comments } from "@gatsbywpthemes/gatsby-theme-wp-comments/src"
 import clsx from "clsx"
+import Map from "~/components/Map"
 
-const Post = ({ post, ctx }) => {
-  const { title, uri, headlesswp } = post
+const Post = ({ post, ctx, places }) => {
+  const { title, uri, headlesswp, location, id } = post
   const { widgetAreas, layoutWidth, addWordPressComments } = useThemeOptions()
 
   const pageTemplate = headlesswp?.pageTemplate || "default"
@@ -59,6 +60,40 @@ const Post = ({ post, ctx }) => {
             "order-2": pageTemplate.includes("left"),
           })}
         />
+
+        {location?.longitude && location?.latitude && (
+          <>
+            <div className="entry-content">
+              <h2 className="location">Location</h2>
+
+              <figure>
+                <Map
+                  featured={{ id, title, uri, location }}
+                  nodes={places.nodes}
+                />
+
+                <figcaption>
+                  Navigate there using{" "}
+                  <a
+                    href={`https://maps.google.com/?q=${location?.latitude},${location?.longitude}&ll=${location?.latitude},${location?.longitude}`}
+                  >
+                    Google Maps
+                  </a>{" "}
+                  <a
+                    href={`http://maps.apple.com/?sll=${location?.latitude},${location?.longitude}&z=10&t=s`}
+                  >
+                    Apple Maps
+                  </a>
+                  , or{" "}
+                  <a href={`geo:${location?.latitude},${location?.longitude}`}>
+                    another map app
+                  </a>
+                </figcaption>
+              </figure>
+            </div>
+          </>
+        )}
+
         {hasSidebar && (
           <div className={clsx("xl:col-span-1 col-span-4 mt-10 lg:mt-0")}>
             <Sidebar widgets={sidebarWidgets} />

@@ -46,5 +46,12 @@ module.exports = {
         wordPressUrl: process.env.GATSBY_WP_URL,
       },
     },
+    {
+      resolve: "gatsby-plugin-react-leaflet",
+      options: {
+        linkStyles: true,
+      },
+    },
+    "gatsby-plugin-sharp-exif",
   ],
 }
