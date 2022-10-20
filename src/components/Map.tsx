@@ -7,8 +7,11 @@ import {
 } from "react-leaflet"
 import { Link } from "gatsby"
 
+type Location = { latitude: number; longitude: number }
+
 type Place = {
   location: Location
+  id: String
   uri: String
   title: String
 }
@@ -34,8 +37,6 @@ const Map = (props: Props) => {
   // const canadaWaterLibraryPosition = [51.4977, -0.04918]
 
   const { featured, places } = props
-
-  type Location = [number, number]
 
   const location = props.featured?.location
 
@@ -65,7 +66,7 @@ const Map = (props: Props) => {
         OpenStreetMap Team"
         />
 
-        {placesWithLocation.map((place) => {
+        {placesWithLocation?.map((place) => {
           const {
             id,
             uri,

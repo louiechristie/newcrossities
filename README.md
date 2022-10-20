@@ -16,6 +16,7 @@ London, New Cross, Deptford, and beyond:
 ## License
 
 Copyright (c) 2022 Louie Christie. All rights reserved.
+
 ## Technology Used
 
 [Gatsby WP Themes - Starter Base](https://gatsbywpthemes.com/starters/starter-base/)
@@ -24,4 +25,4 @@ Copyright (c) 2022 Louie Christie. All rights reserved.
 
 [React](https://reactjs.org/)
 
-JavaScript
+JavaScript and some TypeScript

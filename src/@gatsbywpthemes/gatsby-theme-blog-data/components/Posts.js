@@ -6,7 +6,7 @@ const Blog = ({ data, pageContext }) => {
     <Posts
       posts={data?.allWpPost}
       ctx={pageContext}
-      places={data?.allWpPage?.nodes}
+      places={data?.allWpPost?.nodes}
     />
   )
 }
