@@ -11,7 +11,7 @@ export const pageQuery = graphql`
       databaseId
       ...PostTemplateFragment_starter
     }
-    allWpPage(sort: { fields: date, order: ASC }) {
+    allWpPost(sort: { fields: date, order: ASC }) {
       nodes {
         title
         id
