@@ -85,7 +85,7 @@
 }
 .content a,
 .description a {
-  @apply text-black no-underline dark:text-white hover:text-primary;
+  @apply underline text-blue-600 hover:text-blue-800 visited:text-purple-600 transition duration-300;
 }
 
 .content p {
