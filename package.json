@@ -1,8 +1,13 @@
 {
+  "name": "newcrossities",
+  "description": "A Weary traveller's guide to the new curiosities of South London [beta]",
+  "license": "SEE LICENSE IN <LICENSE>",
   "private": true,
-  "name": "starter-base",
-  "version": "2.6.0",
-  "license": "SEE LICENSE IN LICENSE",
+  "version": "0.3.0",
+  "author": {
+    "name": "Louie Christie",
+    "url": "https://www.louiechristie.com"
+  },
   "scripts": {
     "dev": "rm -rf .cache && gatsby develop",
     "build": "gatsby build",
