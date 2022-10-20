@@ -7,7 +7,19 @@ import {
 } from "react-leaflet"
 import { Link } from "gatsby"
 
-const MapContainer = (props) => {
+type Place = {
+  location: Location
+  uri: String
+  title: String
+}
+
+interface Props {
+  featured: Place
+  places: [Place]
+  zoom?: bigint
+}
+
+const MapContainer = (props: Props) => {
   // Fix because react-leaflet isn't true React.
   return (
     <div className="map-container">
@@ -16,30 +28,18 @@ const MapContainer = (props) => {
   )
 }
 
-const Map = (props) => {
+const Map = (props: Props) => {
   const zoom = 12
   // const bigBenPosition = [51.5007, -0.1246]
   // const canadaWaterLibraryPosition = [51.4977, -0.04918]
 
-  const { featured, nodes } = props
+  const { featured, places } = props
 
   type Location = [number, number]
 
-  type Place = {
-    location: Location
-    uri: String
-    title: String
-  }
-
-  interface Props {
-    featured: Place
-    places: [Place]
-    zoom?: bigint
-  }
-
   const location = props.featured?.location
 
-  const places = nodes?.filter(
+  const placesWithLocation = places?.filter(
     ({ location }) => location?.latitude && location?.longitude
   )
 
@@ -65,7 +65,7 @@ const Map = (props) => {
         OpenStreetMap Team"
         />
 
-        {places.map((place) => {
+        {placesWithLocation.map((place) => {
           const {
             id,
             uri,

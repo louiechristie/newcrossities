@@ -7,7 +7,7 @@ import { Sidebar } from "~/components/Sidebar"
 import { useThemeOptions } from "@gatsbywpthemes/gatsby-theme-blog-data/src/hooks"
 import clsx from "clsx"
 
-export const Archive = ({ posts, ctx, name, description }) => {
+export const Archive = ({ posts, ctx, name, description, places }) => {
   const {
     archiveSidebarPosition: archiveSidebar,
     layoutWidth,
@@ -42,6 +42,7 @@ export const Archive = ({ posts, ctx, name, description }) => {
       >
         <PostsList
           posts={posts}
+          places={places}
           className={clsx("xl:col-span-2 col-span-6", "space-y-10", {
             "order-2": archiveSidebar === "left",
           })}

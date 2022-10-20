@@ -4,7 +4,7 @@ import { Layout } from "~/components/Layout"
 import { Seo } from "@gatsbywpthemes/gatsby-plugin-wp-seo"
 import { useThemeOptions } from "@gatsbywpthemes/gatsby-theme-blog-data/src/hooks"
 
-const Posts = ({ posts, ctx }) => {
+const Posts = ({ posts, ctx, places }) => {
   const { humanPageNumber, numberOfPages, title, yoastSeo, seo } = ctx
   const { postsPath } = useThemeOptions()
 
@@ -18,7 +18,7 @@ const Posts = ({ posts, ctx }) => {
         yoastSeo={yoastSeo}
         seo={seo}
       />
-      <Archive posts={posts.nodes} ctx={ctx} />
+      <Archive posts={posts.nodes} ctx={ctx} places={places} />
     </Layout>
   )
 }

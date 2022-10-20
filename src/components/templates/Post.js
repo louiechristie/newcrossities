@@ -67,10 +67,7 @@ const Post = ({ post, ctx, places }) => {
               <h2 className="location">Location</h2>
 
               <figure>
-                <Map
-                  featured={{ id, title, uri, location }}
-                  nodes={places.nodes}
-                />
+                <Map featured={{ id, title, uri, location }} places={places} />
 
                 <figcaption>
                   Navigate there using{" "}

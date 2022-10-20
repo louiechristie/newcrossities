@@ -78,7 +78,7 @@ const Page = ({ page, ctx, places }) => {
                     <figure>
                       <Map
                         featured={{ id, title, uri, location }}
-                        nodes={places.nodes}
+                        places={places}
                       />
 
                       <figcaption>
