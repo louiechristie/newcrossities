@@ -15,7 +15,9 @@ export const Footer = ({ ...props }) => {
     >
       <div className="center-container">
         <div className={`text-center mb-3`}>
-          © {new Date().getFullYear()} | Built with{`   `}
+          © {new Date().getFullYear()}{" "}
+          <a href="https://www.louiechristie.com/">Louie Christie</a> | Built
+          with{`   `}
           <a
             href="https://gatsbywpthemes.com/"
             target="_blank"
