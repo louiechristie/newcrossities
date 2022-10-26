@@ -21,11 +21,11 @@ export const Header = ({ ...props }) => {
         {...props}
       >
         <div className={"flex justify-between center-container items-center"}>
-          <div className="flex space-x-3">
+          <div className="flex space-x-3 items-center">
             <Branding title={siteSettings.title} />
+            <div>{siteSettings.description}</div>
             <SearchModal />
           </div>
-          <div>{siteSettings.description}</div>
           <div className="flex items-center space-x-5">
             <Menu orientation="H" className="hidden md:flex" />
             <Slidemenu className="md:hidden" />
