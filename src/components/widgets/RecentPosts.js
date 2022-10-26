@@ -7,7 +7,7 @@ import { Image } from "~/components/ui-components/Image"
 
 const RECENT_POSTS_QUERY = graphql`
   query GetRecentPosts {
-    allWpPost(limit: 5, sort: { order: DESC, fields: date }) {
+    allWpPost(limit: 100, sort: { order: DESC, fields: date }) {
       nodes {
         id
         title
