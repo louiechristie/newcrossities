@@ -23,7 +23,7 @@ export const Logo = () => {
       ) : (
         <svg
           width="36"
-          viewBox="0 0 350 350"
+          viewBox="100 0 350 350"
           xmlns="http://www.w3.org/2000/svg"
         >
           <title>Newcrossities Icon</title>

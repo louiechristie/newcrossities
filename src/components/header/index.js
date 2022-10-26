@@ -24,7 +24,7 @@ export const Header = ({ ...props }) => {
         )}
         {...props}
       >
-        <div className="flex flex-row">
+        <div className="flex flex-row items-center">
           <Logo />
           <div>{siteSettings.description}</div>
         </div>
