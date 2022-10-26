@@ -8,7 +8,7 @@ export const Logo = () => {
   const img = logo
 
   return (
-    <Link className="logo" to="/" rel="home">
+    <Link to="/" rel="home">
       {logo ? (
         <>
           {img.localFile ? (
@@ -22,8 +22,7 @@ export const Logo = () => {
         </>
       ) : (
         <svg
-          width="50"
-          className="logo"
+          width="36"
           viewBox="0 0 350 350"
           xmlns="http://www.w3.org/2000/svg"
         >

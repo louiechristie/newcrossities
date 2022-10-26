@@ -22,8 +22,10 @@ export const Header = ({ ...props }) => {
       >
         <div className={"flex justify-between center-container items-center"}>
           <div className="flex space-x-3 items-center">
-            <Branding title={siteSettings.title} />
-            <div>{siteSettings.description}</div>
+            <Branding
+              title={siteSettings.title}
+              description={siteSettings.description}
+            />
             <SearchModal />
           </div>
           <div className="flex items-center space-x-5">
