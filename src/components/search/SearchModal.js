@@ -13,7 +13,7 @@ export const SearchModal = () => {
       <button
         aria-label="search"
         onClick={() => setOpen(true)}
-        className="border-l cursor-pointer border-accentColor dark:border-dark-accentColor"
+        className="mx-2 border-l cursor-pointer border-accentColor dark:border-dark-accentColor"
       >
         <SearchIcon
           className={`text-[24px] text-gray-600  dark:text-light  ml-3`}
