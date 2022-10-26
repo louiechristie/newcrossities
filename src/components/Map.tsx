@@ -22,7 +22,7 @@ interface Props {
   zoom?: bigint
 }
 
-const MapContainer = (props: Props) => {
+const MapContainer = (props: Props): JSX.Element => {
   // Fix because react-leaflet isn't true React.
   return (
     <div className="map-container">

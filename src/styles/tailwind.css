@@ -3,6 +3,7 @@
 @import "tailwindcss/utilities";
 @import "base.css";
 @import "wordpress.css";
+@import "leaflet.css";
 
 @layer base {
 }

@@ -1,0 +1,8 @@
+.leaflet-tooltip-pane > .leaflet-tooltip {
+  /* @apply pointer-events-auto; */
+  pointer-events: auto !important;
+}
+.leaflet-tooltip-pane > .leaflet-tooltip a {
+  /* @apply pointer-events-auto; */
+  pointer-events: auto !important;
+}
