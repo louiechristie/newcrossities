@@ -36,6 +36,9 @@
   li {
     list-style-type: initial;
   }
+  figcaption {
+    font-weight: bold;
+  }
   .map-container {
     background-color: #ccc;
     margin-bottom: 2em;
