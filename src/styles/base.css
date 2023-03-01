@@ -33,6 +33,9 @@
   blockquote {
     @apply px-5 py-12 border-l-4 sm:px-12 border-accentColor max-w-[800px] mx-auto my-10 bg-teal-50 italic dark:bg-slate-800;
   }
+  li {
+    list-style-type: initial;
+  }
   .map-container {
     background-color: #ccc;
     margin-bottom: 2em;
