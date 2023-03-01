@@ -9,7 +9,29 @@ import clsx from "clsx"
 import Map from "~/components/Map"
 
 const Post = ({ post, ctx, places }) => {
-  const { title, uri, headlesswp, location, id } = post
+  const { title, uri, headlesswp, id, featuredImage } = post
+
+  let location = post.location
+
+  const {
+    node: {
+      localFile: {
+        childImageSharp: {
+          fields: {
+            exif: {
+              gps: { latitude, longitude },
+            },
+          },
+        },
+      },
+    },
+  } = featuredImage
+
+  if (!location.latitude || !location.longitude) {
+    location.latitude = latitude
+    location.longitude = longitude
+  }
+
   const { widgetAreas, layoutWidth, addWordPressComments } = useThemeOptions()
 
   const pageTemplate = headlesswp?.pageTemplate || "default"
@@ -19,8 +41,10 @@ const Post = ({ post, ctx, places }) => {
 
   const postWidth = layoutWidth.post || "xl"
 
-  const featuredImage =
+  const original =
     post?.featuredImage?.node?.localFile?.childImageSharp?.original
+
+  console.log(`Post: `, post)
 
   return (
     <Layout page={post} type="post">
@@ -30,10 +54,10 @@ const Post = ({ post, ctx, places }) => {
         yoastSeo={ctx.yoastSeo}
         seo={ctx.seo}
         featuredImage={
-          featuredImage && {
-            src: featuredImage.src,
-            width: featuredImage.width,
-            height: featuredImage.height,
+          original && {
+            src: original.src,
+            width: original.width,
+            height: original.height,
           }
         }
       />
@@ -61,6 +85,8 @@ const Post = ({ post, ctx, places }) => {
           })}
         />
 
+        {/* <pre>{JSON.stringify(post, null, 2)}</pre> */}
+
         {location?.longitude && location?.latitude && (
           <>
             <div className="entry-content">
@@ -72,19 +98,17 @@ const Post = ({ post, ctx, places }) => {
                 <figcaption>
                   Navigate there using{" "}
                   <a
-                    href={`https://maps.google.com/?q=${location?.latitude},${location?.longitude}&ll=${location?.latitude},${location?.longitude}`}
+                    href={`https://maps.google.com/?q=${latitude},${longitude}&ll=${latitude},${longitude}`}
                   >
                     Google Maps
                   </a>{" "}
                   <a
-                    href={`http://maps.apple.com/?sll=${location?.latitude},${location?.longitude}&z=10&t=s`}
+                    href={`http://maps.apple.com/?sll=${latitude},${longitude}&z=10&t=s`}
                   >
                     Apple Maps
                   </a>
                   , or{" "}
-                  <a href={`geo:${location?.latitude},${location?.longitude}`}>
-                    another map app
-                  </a>
+                  <a href={`geo:${latitude},${longitude}`}>another map app</a>
                 </figcaption>
               </figure>
             </div>

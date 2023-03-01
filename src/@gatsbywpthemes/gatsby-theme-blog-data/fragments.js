@@ -61,6 +61,14 @@ export const fragments = graphql`
           width
           src
         }
+        fields {
+          exif {
+            gps {
+              latitude
+              longitude
+            }
+          }
+        }
       }
     }
   }

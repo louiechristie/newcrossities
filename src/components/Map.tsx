@@ -14,6 +14,19 @@ type Place = {
   id: String
   uri: String
   title: String
+  featuredImage: {
+    node: {
+      localFile: {
+        childImageSharp: {
+          fields: {
+            exif: {
+              gps: { latitude; longitude }
+            }
+          }
+        }
+      }
+    }
+  }
 }
 
 interface Props {
@@ -40,8 +53,49 @@ const Map = (props: Props) => {
 
   const location = props.featured?.location
 
-  const placesWithLocation = places?.filter(
-    ({ location }) => location?.latitude && location?.longitude
+  // const placesWithLocation = places?.filter(
+  //   ({ location }) => location?.latitude && location?.longitude
+  // )
+
+  const placesWithLocation = places?.reduce(
+    (
+      accumulator: Place[],
+      currentValue: Place,
+      currentIndex: number,
+      array: Place[]
+    ) => {
+      const {
+        featuredImage: {
+          node: {
+            localFile: {
+              childImageSharp: {
+                fields: {
+                  exif: {
+                    gps: { latitude, longitude },
+                  },
+                },
+              },
+            },
+          },
+        },
+      } = currentValue
+
+      let usedLatitude = currentValue.location?.latitude
+      let usedLongitude = currentValue.location?.longitude
+
+      if (!usedLatitude || !usedLongitude) {
+        usedLatitude = latitude
+        usedLongitude = longitude
+      }
+      return [
+        ...accumulator,
+        {
+          ...currentValue,
+          location: { latitude: usedLatitude, longitude: usedLongitude },
+        },
+      ]
+    },
+    []
   )
 
   // console.log('featured?.uri', featured?.uri);

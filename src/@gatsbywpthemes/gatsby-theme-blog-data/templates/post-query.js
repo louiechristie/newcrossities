@@ -20,6 +20,22 @@ export const pageQuery = graphql`
           latitude
           longitude
         }
+        featuredImage {
+          node {
+            localFile {
+              childImageSharp {
+                fields {
+                  exif {
+                    gps {
+                      latitude
+                      longitude
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
       }
     }
   }
