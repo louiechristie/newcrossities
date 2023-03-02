@@ -87,7 +87,8 @@ const Page = ({ page, ctx, places }) => {
                           href={`https://maps.google.com/?q=${location?.latitude},${location?.longitude}&ll=${location?.latitude},${location?.longitude}`}
                         >
                           Google Maps
-                        </a>{" "}
+                        </a>
+                        {", "}
                         <a
                           href={`http://maps.apple.com/?sll=${location?.latitude},${location?.longitude}&z=10&t=s`}
                         >

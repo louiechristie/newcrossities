@@ -98,17 +98,20 @@ const Post = ({ post, ctx, places }) => {
                 <figcaption>
                   Navigate there using{" "}
                   <a
-                    href={`https://maps.google.com/?q=${latitude},${longitude}&ll=${latitude},${longitude}`}
+                    href={`https://maps.google.com/?q=${location?.latitude},${location?.longitude}&ll=${location?.latitude},${location?.longitude}`}
                   >
                     Google Maps
-                  </a>{" "}
+                  </a>
+                  {", "}
                   <a
-                    href={`http://maps.apple.com/?sll=${latitude},${longitude}&z=10&t=s`}
+                    href={`http://maps.apple.com/?sll=${location?.latitude},${location?.longitude}&z=10&t=s`}
                   >
                     Apple Maps
                   </a>
                   , or{" "}
-                  <a href={`geo:${latitude},${longitude}`}>another map app</a>
+                  <a href={`geo:${location?.latitude},${location?.longitude}`}>
+                    another map app
+                  </a>
                 </figcaption>
               </figure>
             </div>
