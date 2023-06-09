@@ -25,7 +25,7 @@
     "@gatsbywpthemes/gatsby-theme-wp-search": "https://gitpkg.now.sh/gatsbywpthemes/gatsby-wp-themes/packages/gatsby-theme-wp-search?0aba16507cdb7e7d2fd1bff71f5e2c21e3e258ba",
     "@headlessui/react": "^1.7.12",
     "@kunukn/react-collapse": "^2.2.10",
-    "gatsby": "^4.25.5",
+    "gatsby": "^4.25.7",
     "gatsby-plugin-react-leaflet": "^4.0.3",
     "leaflet": "^1.9.3",
     "local-storage": "^2.0.0",
